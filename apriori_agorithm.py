@@ -25,19 +25,6 @@ rules.sort_values('confidence', ascending = False, inplace = True)
 
 rules = rules.reset_index(drop=True)
 
-for index, row in rules.iterrows():  
-    a = [x for x in rules['antecedents'][index]]
-    c = [x for x in rules['consequents'][index]]
-    rules.loc[index, 'antecedents_formatted'] = str(a)
-    rules.loc[index, 'consequents_formatted'] = str(c)
-    
-rules=rules[['antecedents_formatted', 'consequents_formatted', 'antecedent support',
-       'consequent support', 'support', 'confidence', 'lift', 'leverage',
-       'conviction']]
-rules.columns=['antecedents', 'consequents', 'antecedent support',
-       'consequent support', 'support', 'confidence', 'lift', 'leverage',
-       'conviction']
-
 rules.to_csv("results.csv", index = False)
 
 plt.scatter(rules['support'], rules['confidence'], alpha=0.5)
