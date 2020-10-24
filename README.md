@@ -6,3 +6,5 @@ The Apriori algorithm computes the:
    * Lift (strength of association)
 
 Computing the above metrics for large dataset can be handled using Python packages. 
+
+The repository contains a sample dataset and working Python code for arriving at the result.
